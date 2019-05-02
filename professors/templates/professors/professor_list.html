@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+
+{% block head_title %}iTerps - PROFESSORS{% endblock %}
+
+{% block content %}
+    <div>
+        <br>
+        <br>
+        {% for prof in object_list %}
+            <li class="media">
+                <a href="{% url 'professors:professor_detail' prof.slug %}">
+                    <img class="mr-3 img-thumbnail" width='60' height='60'
+                         src="https://evidlab.umd.edu/wp-content/uploads/2017/12/20-Donal-Heidenblad-02.jpg"
+                         alt="Generic placeholder image"></a>
+                <div class="media-body">
+                    <h5 class="mt-0 mb-1"><a href="{% url 'professors:professor_detail' prof.slug %}">{{ prof.first_name }} {{ prof.last_name }}</a></h5>
+                    <email>{{ prof.email }}</email>
+                    <span>{{ prof.office}}</span>
+                </div>
+            </li>
+            <br>
+        {% endfor %}
+    </div>
+{%  endblock %}

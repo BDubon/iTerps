@@ -1,0 +1,42 @@
+{% extends 'base.html' %}
+
+{% block head_title %}Professor - {{ object.last_name }}{% endblock %}
+
+{% block content %}
+    <div class="clearfix row">
+        <!-- PROFILE CARD -->
+        <div class="column menu">
+            <div class="card" style="width: 18rem;">
+                <span class="clearfix">
+                    <div class=>
+                        <img class="card-img-top border-top-0" src="https://evidlab.umd.edu/wp-content/uploads/2017/12/20-Donal-Heidenblad-02.jpg" alt="Card image cap">
+                        <div class="card-body">
+                        <h5 class="card-title">{{ object.first_name }} {{ object.last_name }}</h5>
+                        <p class="card-text"><em>{{ object.title }}</em></p>
+                        </div>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        <li class="list-group-item">{{ object.email }}</li>
+                        <li class="list-group-item">{{ object.office }}</li>
+                        <li class="list-group-item">{{ object.phone_number }}</li>
+                    </ul>
+                    <div class="card-body">
+                        <a href="#" class="card-link">Card link</a>
+                        <a href="#" class="card-link">Another link</a>
+                    </div>
+                </span>
+            </div>
+        </div>
+
+        <!-- CONTENT -->
+        <div class="column content">
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
+                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
+                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit</p>
+                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
+                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
+                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit</p>
+        </div>
+    </div>
+
+{% endblock %}

@@ -1,0 +1,15 @@
+{% extends 'base.html' %}
+{% block head_title %}Course - {{ object.course_number }}{% endblock %}
+
+{% block content %}
+    <br>
+    <div>
+        <h1>{{ object.course_number }}</h1>
+        <p>{{ object.description }}</p>
+    </div>
+
+
+    {% include comment_form %}
+
+
+{% endblock %}

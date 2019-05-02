@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+{% block content %}
+
+<div>
+<!-- PAGINATION -->
+    <br>
+    <br>
+<!-- COURSE INFORMATION -->
+     {% for course in object_list %}
+
+            <div class=" container card" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); width: 90%;">
+                <div class="card-header" style="background-color: #788080;"><h4><b>
+                    <a href="{% url 'courses:course_detail' course.slug %}"  style="color: #ffdb19">{{ course.course_number }}</a></b></h4></div>
+                <div class="card-body">
+                <h5 class="card-title" style="color: #cd0011"><b>{{ course.name}}</b></h5>
+                <p class="card-text" style="color: #1b1e21">{{ course.description }}</p>
+                <!-- <a href="#" class="btn btn-primary">Review!</a> BUTTON -->
+                </div>
+            </div>
+
+        <br>
+    {% endfor %}
+</div>
+
+{% endblock %}

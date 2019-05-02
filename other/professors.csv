@@ -1,0 +1,31 @@
+prof_ID,first_name,last_name,title,email,phone_number,office,slug,picture,classes
+1,Donal,Heidenblad,Lecturer,dheidenb@umd.edu,301-567-3487,"4111G Hornbake Building, South Wing",,https://evidlab.umd.edu/wp-content/uploads/2017/12/20-Donal-Heidenblad-02.jpg,"INST346, INST377, INST447"
+2,Hernisa,Kacorri,Assistant Professor,hernisa@umd.edu,301-405-2032,"2118A Hornbake Building, South Wing",,https://ischool.umd.edu/sites/default/files/styles/large/public/Staff_Pics/kacorri_hernisa.jpg?itok=69zzv1ZP,"INST314, INST709"
+3,Bill,Kules,Lecturer,wmk@umd.edu,301-405-7622,"2117k Hornbake Building, South Wing",,https://ischool.umd.edu/sites/default/files/images/Screen%20Shot%202017-09-18%20at%2010_51_12%20AM.png,"INST126, INST309, INST709, INST776"
+4,Dennis,Frezzo,Lecturer,dfrezzo@umd.edu,,,,,"INST346, INST362"
+5,Sriram,Karthi Badam,Candidate in Computer Science,sbadam@umd.edu,,"2117 Hornbake Building, South Wing",,,INST462
+6,Jonathan,Lazar,Lecturer,jlazar@umd.edu,,"2117J Hornbake Building, South Wing",,https://ischool.umd.edu/sites/default/files/styles/large/public/Staff_Pics/lazar_jonathan-01.jpg?itok=N5ZrTojh,INST362
+7,Jennifer,Golbeck,Professor and Director,jgolbeck@umd.edu,301-405-7185,"4105E Hornbake Building, South Wing",,https://i.cbc.ca/1.4608619.1523039363!/fileImage/httpImage/image.jpg_gen/derivatives/original_780/jen-golbeck.jpg,"INST326, INST462, INST627, INST709"
+8,Amanda,Lazar,Assistant Professor,lazar@umd.edu,301-405-8550,"2117D Hornbake Building, South Wing",,https://ischool.umd.edu/sites/default/files/styles/large/public/Staff_Pics/lazar_amanda_0.jpg?itok=DvvBw-oY,"INST808, INST709, INST810"
+9,Sarah,Gilbert,"Postdoctoral Research Scholar, Adjunct Faculty",sagilber@umd.edu,,,,https://ischool.umd.edu/sites/default/files/styles/large/public/Staff_Pics/gilbert_sarah.jpg?itok=2W1xUYY9,INST201
+10,Tammie,Nelson,Lecturer,tnelson7@umd.edu,,"4117M Hornbake Building, South Wing",,https://ischool.umd.edu/sites/default/files/styles/large/public/Staff_Pics/nelson_tammie.jpg?itok=1LYaLmlH,INST327
+11,Shawn,Janzen,Lecturer,sjanzen@umd.edu,301-405-2033,"2117 Hornbake Building, South Wing",,https://ischool.umd.edu/sites/default/files/styles/large/public/Staff_Pics/janzen_shawn.jpg?itok=02VPTSxH,"INST314, INST309, INST627"
+12,Ursula,Gorham,Lecturer,ugorham@umd.edu,301-405-1660,"4121D Hornbake Building, South Wing",,https://ischool.umd.edu/sites/default/files/styles/large/public/Staff_Pics/gorham_ursula_v2.jpg?itok=HUgHOHyh,"INST152, INST352, INST607, INST614, INST615, INST709"
+13,Christopher,Antoun,Lecturer,antoun@umd.edu,,"4015F Hornbake Building, South Wing",,https://ischool.umd.edu/sites/default/files/styles/large/public/Staff_Pics/antoun_chris.jpg?itok=eashUmZC,INST354
+14,Kanti,Srikantaiah,Lecturer,,,"4111F Hornbake Building, South Wing",,,INST335
+15,Ryan,O'Grady,Adjunct Professor,rogrady1@umd.edu,,,,,"INST201, INST301"
+16,Katy,Lawley,Lecturer,katyn@umd.edu,,"4111H Hornbake Building, South Wing",,https://ischool.umd.edu/sites/default/files/styles/large/public/Staff_Pics/lawley_katy.jpg?itok=ubZNyDsX,INST311
+17,Doug,Oard,Affiliate Professor,oard@umd.edu,301-405-5582,Patuxent 1109C,,https://ischool.umd.edu/sites/default/files/styles/large/public/Staff_Pics/oard_doug-01_0.jpg?itok=tYEi5HeL,INST154
+18,Vedat,Diker,Senior Lecturer & Undergraduate Program Director,vdiker@umd.edu,301-405-9814,HBK0217A North Side,,https://ischool.umd.edu/sites/default/files/styles/large/public/Staff_Pics/diker_vedet.jpg?itok=GjsQfeAa,"INST327, INST630, INST309"
+19,Aric,Bills,Lecturer,abills@umd.edu,301-405-3728,"4114 Hornbake Building, South Wing",,,INST326
+20,Joel ,Chan,Assistant Professor,joelchan@umd.edu,301-405-5628,Hornbake 2118E,,https://ischool.umd.edu/sites/default/files/styles/large/public/Staff_Pics/chan_joel-01.jpg?itok=Lf-ePJJH,"INST201, INST126"
+21,William,Bowser,Lecturer,wbowser@umd.edu,,,,,INST414
+22,Philip,Piety,"Senior Lecturer and Director, Maryland Education Digital Infrastructures (MEDI) Lab",ppiety@umd.edu,301-405-2041,"4121-G Hornbake Building, South Wing",,https://ischool.umd.edu/sites/default/files/styles/large/public/Staff_Pics/piety_philip.jpg?itok=ZFsJ7f5n,INST335
+23,Yla,Tausczik,Assistant Professor,ylatau@umd.edu,301-405-2058,"2118C Hornbake Bulding, South Wing",,https://www.google.com/url?sa=i&source=images&cd=&cad=rja&uact=8&ved=2ahUKEwjUx6aJuOvhAhVhUd8KHZ9XD5gQjRx6BAgBEAU&url=https%3A%2F%2Fischool.umd.edu%2Ffaculty-staff%2Fyla-tausczik&psig=AOvVaw3-sGgZRq3frCjt78PTo9a9&ust=1556288359114882,
+24,Kathy,Weaver,Senior Lecturer,keweaver@umd.edu,301-405-0335,4111J Hornbake Building,,https://ischool.umd.edu/sites/default/files/styles/large/public/Staff_Pics/weaver_kathy_web.jpg?itok=Grt3YKQY,INST309
+25,Katrina,Fenlon,Assistant Professor,kfenlon@umd.edu,301-405-2035, 4105-C Hornbake South,,https://ischool.umd.edu/sites/default/files/styles/large/public/Staff_Pics/fenlon_katrina_2019.jpg?itok=4_rQtDvS,INST341
+26,Mary,Kendig,Research Administrator,mkendig@umd.edu,301-405-2033,Patuxent 1109A,,https://ischool.umd.edu/sites/default/files/styles/large/public/Staff_Pics/kendig_mary.jpg?itok=K-676Glq,INST335
+27,Gregory,Smith,Lecturer,,,,,,INST490
+28,Eric,Newburger,PhD Student,enewburger@umd.edu,301-405-2033,"4105 Hornbake Building, South Wing",,https://ischool.umd.edu/sites/default/files/styles/large/public/Staff_Pics/newburger_eric.jpg?itok=P1WAKeF8,
+29,Daniel,Greene,Assistant Professor,dgreene1@umd.edu,301-801-1635,"4105-D Hornbake, South Wing",,https://ischool.umd.edu/sites/default/files/styles/large/public/Staff_Pics/greene_daniel.jpg?itok=1Rmx57dv,INST466
+30,Ricardo,Punzalan,Assistant Professor,punzalan@umd.edu,301-405-6518,4105A Hornbake Building,,https://2018ignite.github.io/assets/images/IMG_0209.JPG,INST604
