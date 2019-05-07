@@ -3,9 +3,9 @@ from django.db import models
 from django.db.models.signals import pre_save
 from django.urls import reverse
 from django.utils.text import slugify
+from django.db.models import Q
 
 
-# Create your models here.
 class Course(models.Model):
     course_id = models.AutoField(db_column='course_ID', primary_key=True)  # Field name made lowercase.
     course_number = models.CharField(max_length=10)

@@ -11,6 +11,7 @@ from django.views.generic import (
 # Create your views here.
 class ProfessorListView(ListView):
     model = Professor
+    paginate_by = 9
     template_name = 'professors/professor_list.html'
 
 

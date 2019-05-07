@@ -1,13 +1,67 @@
 {% extends 'base.html' %}
-
+{% load static %}
 {% block head_title %}iTerps - PROFESSORS{% endblock %}
 
 {% block content %}
-    <div>
-        <br>
-        <br>
+        <!-- PAGINATOR TOP-->
+    <br>
+    <nav aria-label="Page Navigation">
+        {% if is_paginated %}
+            <ul class="pagination justify-content-end">
+            {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" style="color: #FFDB19; background-color: #1b1e21;" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <span class="page-link" style="color: #b79419; background-color: #212121;">Previous</span>
+                </li>
+            {% endif %}
+
+            {% for i in paginator.page_range %}
+              {% if page_obj.number == i %}
+                <li class="page-item active">
+                    <span class="page-link" style="color: #f9f9f9; background-color: #a80001; border: 1px solid #a80001;">{{ i }}<span class="sr-only">(current)</span></span>
+                </li>
+              {% else %}
+                <li class="page-item"><a class="page-link" style="color: #FFDB19; background-color: #1b1e21;" href="?page={{ i }}">{{ i }}</a></li>
+              {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" style="color: #FFDB19; background-color: #1b1e21;" href="?page={{ page_obj.next_page_number }}">Next</a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <span class="page-link" style="color: #b79419; background-color: #212121;">Next</span>
+                </li>
+            {% endif %}
+                </ul>
+        {% endif %}
+    </nav>
+
+
+    <!-- PROFESSOR INFORMATION -->
+        <div class="row col-md-12 justify-content-center">
         {% for prof in object_list %}
-            <li class="media">
+            <div class="col-md-3" style="margin: 10px; text-align: center;">
+                <a href="{% url 'professors:professor_detail' prof.slug %}" style="text-decoration: none;">
+                    <div class="card" style="box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                        {% if prof.picture == 'NA' %}
+                            <img class="card-img-top" src="{% static 'professors/default_profile.png' %}" alt="Card image cap" style="height: 200px; object-fit: cover;">
+                        {% else %}
+                            <img class="card-img-top" src="{{ prof.picture}}" alt="Card image cap" style="height: 200px; object-fit: cover; object-position: 0 0;">
+                        {% endif %}
+                        <div class="card-body" style="background-color: #a80001">
+                        <h5 class="card-title" style="color: #fbfbff"><b>{{ prof.first_name }} {{ prof.last_name }}</b></h5>
+                        </div>
+                    </div>
+                </a>
+            </div>
+
+
+            <!-- <li class="media">
                 <a href="{% url 'professors:professor_detail' prof.slug %}">
                     <img class="mr-3 img-thumbnail" width='60' height='60'
                          src="https://evidlab.umd.edu/wp-content/uploads/2017/12/20-Donal-Heidenblad-02.jpg"
@@ -18,7 +72,45 @@
                     <span>{{ prof.office}}</span>
                 </div>
             </li>
-            <br>
+            <br> -->
         {% endfor %}
-    </div>
+        </div>
+
+        <!-- PAGINATOR BOTTOM-->
+    <br>
+    <nav aria-label="Page Navigation">
+        {% if is_paginated %}
+            <ul class="pagination justify-content-end">
+            {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" style="color: #FFDB19; background-color: #1b1e21;" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <span class="page-link" style="color: #b79419; background-color: #212121;">Previous</span>
+                </li>
+            {% endif %}
+
+            {% for i in paginator.page_range %}
+              {% if page_obj.number == i %}
+                <li class="page-item active">
+                    <span class="page-link" style="color: #f9f9f9; background-color: #a80001; border: 1px solid #a80001;">{{ i }}<span class="sr-only">(current)</span></span>
+                </li>
+              {% else %}
+                <li class="page-item"><a class="page-link" style="color: #FFDB19; background-color: #1b1e21;" href="?page={{ i }}">{{ i }}</a></li>
+              {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" style="color: #FFDB19; background-color: #1b1e21;" href="?page={{ page_obj.next_page_number }}">Next</a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <span class="page-link" style="color: #b79419; background-color: #212121;">Next</span>
+                </li>
+            {% endif %}
+                </ul>
+        {% endif %}
+    </nav>
 {%  endblock %}

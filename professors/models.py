@@ -16,6 +16,8 @@ class Professor(models.Model):
     phone_number = models.CharField(max_length=15)
     office = models.CharField(max_length=100)
     slug = models.SlugField(unique=True)
+    picture = models.CharField(max_length=400)
+    courses = models.CharField(max_length=400)
 
     class Meta:
         managed = True

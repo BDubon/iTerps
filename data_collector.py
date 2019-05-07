@@ -1,5 +1,6 @@
 import requests as r
-import json, csv
+import json
+import csv
 
 """
  C O U R S E S
@@ -23,8 +24,6 @@ import json, csv
     'also_offered_as'
     'credit_granted_for'
 'sections' - list
-
-"""
 
 url = 'https://api.umd.io/v0/courses?dept_id=INST'
 
@@ -57,3 +56,34 @@ with open('other/courses.csv', 'w', newline='') as csvFile:
 
         writer.writerow(row)
         id += 1
+"""
+
+# PROFESSOR'S DATA
+
+with open('other/professors.csv', 'r') as pf:
+    next(pf)
+    wFile = open('other/professor2.csv', 'w', newline='')
+    headers = ['prof_ID', 'first_name', 'last_name', 'title', 'email', 'phone_number', 'office', 'slug', 'picture']
+    writer = csv.DictWriter(wFile, fieldnames=headers)
+    writer.writeheader()
+    for line in pf:
+        line = line.strip()
+        lineList = line.split(',')
+        profID = lineList[0]
+        firstN = lineList[1]
+        lastN = lineList[2]
+        title = lineList[3]
+        email = lineList[4]
+        phone = lineList[5]
+        office = lineList[6]
+        slug = firstN + '-' + lastN
+        pic = lineList[8]
+        courses = lineList[9]
+
+        row = {'prof_ID': profID, 'first_name': firstN, 'last_name': lastN, 'title': title, 'email': email,
+               'phone_number': phone, 'office': office, 'slug': slug, 'picture': pic}
+        writer.writerow(row)
+
+
+
+

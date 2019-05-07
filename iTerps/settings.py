@@ -32,8 +32,10 @@ ALLOWED_HOSTS = []
 
 INSTALLED_APPS = [
     'courses',
+    'haystack',
     'professors',
     'users',
+    'whoosh',
     'crispy_forms',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -127,6 +129,18 @@ USE_I18N = True
 USE_L10N = True
 
 USE_TZ = True
+
+# SEARCH ENGINE AND FEATURES
+WHOOSH_INDEX = os.path.join(BASE_DIR, 'whoosh/')
+
+HAYSTACK_CONNECTIONS = {
+    'default': {
+        'ENGINE': 'haystack.backends.whoosh_backend.WhooshEngine',
+        'PATH': WHOOSH_INDEX,
+    },
+}
+
+HAYSTACK_SIGNAL_PROCESSOR = 'haystack.signals.RealtimeSignalProcessor'
 
 
 # Static files (CSS, JavaScript, Images)

@@ -8,8 +8,7 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="{% static  'bootstrap.min.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static  'custom.css' %}">
-    <link rel="stylesheet" type="text/css" href="{% static 'other/custom.css' %}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{% static  'courses/courses_custom.css' %}">
 
       {% if title %}
@@ -22,95 +21,88 @@
   <body style="background-color: rgba(120,128,128,0.14);">
 
   <!-- NAVBAR -->
-    <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #000000;">
-        <span class="w-75  container-fluid">
-            <a class="navbar-brand"  href="/"><img src="{% static 'logo.png' %}" width="125" height="55" alt=""></a>
-            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-            <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse " id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                    <li class="nav-item">
-                        <b><a class="nav-link" href="/courses">COURSES</a></b>
-                    </li>
-                    <li class="nav-item">
-                        <b><a class="nav-link" href="/professors">PROFESSORS</a></b>
-                    </li>
-                    <li class="nav-item dropdown">
-                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                            <b>RESOURCES</b>
-                        </a>
-                        <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                            <a class="dropdown-item" href="#">Books</a>
-                            <a class="dropdown-item" href="#">Jobs/Internships</a>
-                        <div class="dropdown-divider"></div>
-                            <a class="dropdown-item" href="#">Events</a>
-                        </div>
-                    </li>
-                </ul>
-                <!-- Navbar Right Side -->
-                <div class="navbar-nav">
-                    {% if user.is_authenticated %}
-                        <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
-                        <a class="nav-item nav-link" href="{%  url 'logout' %}">Logout</a>
-                    {% else %}
-                        <a class="nav-item nav-link" href="{%  url 'login' %}">Login</a>
-                        <a class="nav-item nav-link" href="{%  url 'register' %}">Register</a>
-                    {% endif %}
+        <nav class="navbar navbar-expand-lg navbar-dark sticky-top" style="background-color: #8f0001; ">
+            <div class="w-75  container-fluid">
+                <a class="navbar-brand"  href="/"><img src="{% static 'logo.png' %}" width="125" height="55" alt=""></a>
+                <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse " id="navbarSupportedContent">
+                    <ul class="navbar-nav mr-auto">
+                        <li id="navItem" class="nav-item">
+                            <b><a class="nav-link" href="/courses">COURSES</a></b>
+                        </li>
+                        <li id="navItem" class="nav-item">
+                            <b><a class="nav-link" href="/professors">PROFESSORS</a></b>
+                        </li>
+                        <li id="navItem" class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <b>RESOURCES</b>
+                            </a>
+                            <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+                                <a class="dropdown-item" href="#">Books</a>
+                                <a class="dropdown-item" href="#">Jobs/Internships</a>
+                                <div class="dropdown-divider"></div>
+                                <a class="dropdown-item" href="#">Events</a>
+                            </div>
+                        </li>
+                    </ul>
+                    <!-- Navbar Right Side -->
+                    <div class="navbar-nav">
+                        {% if user.is_authenticated %}
+                            <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
+                            <a class="nav-item nav-link" href="{%  url 'logout' %}">Logout</a>
+                        {% else %}
+                            <a class="nav-item nav-link" href="{%  url 'login' %}">Login</a>
+                            <a class="nav-item nav-link" href="{%  url 'register' %}">Register</a>
+                        {% endif %}
+                    </div>
+                </div>
+
+                <!-- SEARCH BAR -->
+                <div>
+                    <form id="searchbar" class="form-inline my-2 my-lg-0" method="GET">
+                        <input class="form-control mr-sm-2" id="searchbox" name="q" type="text" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+                    </form>
                 </div>
             </div>
+        </nav>
 
-            <!-- SEARCH BAR -->
-            <div>
-                <form class="form-inline my-2 my-lg-0">
-                    <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
-                    <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                </form>
-            </div>
-        </span>
-    </nav>
-  <br>
-  <br>
-    <main role="main" class="container border rounded align-content-center" style="background-color: #ffffff;">
+      <br>
+      <br>
+
+    <main role="main" class="container border rounded align-content-center" style="background-color: #ffffff; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
 
         <!-- ALERTS -->
-      <div class="row">
-        <div class="col-md-8">
-          {% if messages %}
-            {% for message in messages %}
-              <div class="alert alert-{{ message.tags }}">
-                {{ message }}
-              </div>
-            {% endfor %}
-          {% endif %}
-        </div>
-      {% block content %}{% endblock %}
-        </div>
-      </div>
+          <div class="row">
+            <div class="col-md-8">
+              {% if messages %}
+                {% for message in messages %}
+                  <div class="alert alert-{{ message.tags }}">
+                    {{ message }}
+                  </div>
+                {% endfor %}
+              {% endif %}
+            </div>
+          </div>
+
+        <!-- PAGES CONTENT -->
+        {% block content %}
+
+        {% endblock %}
     </main>
 
-
-    <style>
-        .sticky-footer-wrapper {
-            min-height: 5vh;
-            background-color: #eeeeee;
-            color: #e8de36;
-            position: relative;
-        }
-        .flex-fill {
-            flex:1 1 auto;
-        }
-    </style>
-  <!-- FOOTER -->
-  <br>
-  <br>
-    <div class="d-flex flex-column fixed-bottom" style="background-color: #000000">
+    <!-- FOOTER -->
+    <br>
+    <br>
+    <div class="sticky-footer-wrapper" style="background-color: #000000">
       <div class="flex-fill">Footer</div>
     </div>
 
     <!-- Optional JavaScript -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->
-    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
             integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
             crossorigin="anonymous"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
@@ -119,5 +111,6 @@
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
             integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
             crossorigin="anonymous"></script>
+
   </body>
 </html>

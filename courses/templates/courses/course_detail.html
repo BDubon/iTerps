@@ -1,15 +1,107 @@
 {% extends 'base.html' %}
+{% load static %}
 {% block head_title %}Course - {{ object.course_number }}{% endblock %}
 
+    <head>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        <link rel="stylesheet" href="{% static 'courses/courses.custom.css' %}">
+    </head>
+
 {% block content %}
+    <div class="page-header">
+        <h1>{{ object.course_number }}</h1>
+
+    </div>
     <br>
     <div>
         <h1>{{ object.course_number }}</h1>
+        <h3>{{ object.name }}</h3>
         <p>{{ object.description }}</p>
     </div>
 
 
-    {% include comment_form %}
+    <!-- SUMMARY RATINGS -->
+    <!-- Add icon library -->
+
+<span class="heading">User Rating</span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star checked"></span>
+<span class="fa fa-star"></span>
+<p>4.1 average based on 254 reviews.</p>
+<hr style="border:3px solid #f1f1f1">
+
+<div class="row">
+  <div class="side">
+    <div>5 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-5"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>150</div>
+  </div>
+  <div class="side">
+    <div>4 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-4"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>56</div>
+  </div>
+  <div class="side">
+    <div>3 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-3"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>15</div>
+  </div>
+  <div class="side">
+    <div>2 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-2"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>6</div>
+  </div>
+  <div class="side">
+    <div>1 star</div>
+  </div>
+  <div class="middle">
+    <div class="bar-container">
+      <div class="bar-1"></div>
+    </div>
+  </div>
+  <div class="side right">
+    <div>20</div>
+  </div>
+</div>
+
+    {% if user.is_authenticated %}
+        <label for="course-review">Type your review here!</label>
+        <form  class="form-container">
+            <!-- COmment Area -->
+            <textarea rows="8" cols="50" style="margin: auto;"></textarea>
+            <button class="btn">Submit</button>
+        </form>
+    {% else %}
+            <button class="btn" href="{%  url 'login' %}">Log In to Leave A Review!</button>
+    {% endif %}
+    <br>
+    <br>
 
 
 {% endblock %}
