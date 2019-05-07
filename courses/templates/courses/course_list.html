@@ -38,37 +38,22 @@
                 </ul>
         {% endif %}
     </nav>
-
     <!-- COURSE INFORMATION -->
     <div class="row col-md-12 justify-content-center">
-     {% for course in object_list %}
-         <div class="col-md-3" style="margin: 10px 20px; max-width: 18rem; min-height: 20px;">
-             <a href="{% url 'courses:course_detail' course.slug %}" style="text-decoration: none; background-color: #bd2130;">
-                 <div class="card text-center" style="background-color: #000000; width: 18rem; height: 9rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-                    <div class="card-body">
-                        <h5 class="card-title" style="color: #ffdb19"><b>{{ course.course_number }}</b></h5>
-                        <p class="card-text" style="color: #fffef6">{{ course.name }}</p>
-                    </div>
-                 </div>
-             </a>
-         </div>
-
-
-        <!--<div class="col-md-3" style="margin: 10px; text-align: center;">
-            <a href="{% url 'courses:course_detail' course.slug %}">
-                <div class="card" style="width: 18rem; text-shadow: 0 2px 4px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19); color: #ffdb19;background-color: #7b000a; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
-                    <div class="card-body">
-                    <h5 class="card-title"><b>{{ course.course_number }}</b></h5>
-                    <p class="card-text">{{ course.name }}</p>
-                    </div>
-                </div>
-            </a>
-        </div>-->
-    {% endfor %}
+         {% for course in object_list %}
+             <div class="col-md-3" style="margin: 10px 20px; max-width: 18rem; min-height: 20px;">
+                 <a href="{% url 'courses:course_detail' course.slug %}" style="text-decoration: none; background-color: #bd2130;">
+                     <div class="card text-center" style="background-color: #000000; width: 18rem; height: 9rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                        <div class="card-body">
+                            <h5 class="card-title" style="color: #ffdb19"><b>{{ course.course_number }}</b></h5>
+                            <p class="card-text" style="color: #fffef6">{{ course.name }}</p>
+                        </div>
+                     </div>
+                 </a>
+             </div>
+         {% endfor %}
     </div>
     <br>
-
-
     <!-- PAGINATOR BOTTOM -->
     <nav aria-label="Page Navigation">
         {% if is_paginated %}
@@ -105,7 +90,4 @@
                 </ul>
         {% endif %}
     </nav>
-
-</div>
-
 {% endblock %}
