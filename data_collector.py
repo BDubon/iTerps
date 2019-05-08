@@ -63,7 +63,7 @@ with open('other/courses.csv', 'w', newline='') as csvFile:
 with open('other/professors.csv', 'r') as pf:
     next(pf)
     wFile = open('other/professor2.csv', 'w', newline='')
-    headers = ['prof_ID', 'first_name', 'last_name', 'title', 'email', 'phone_number', 'office', 'slug', 'picture']
+    headers = ['prof_ID', 'first_name', 'last_name', 'title', 'email', 'phone_number', 'office', 'slug', 'picture', 'courses']
     writer = csv.DictWriter(wFile, fieldnames=headers)
     writer.writeheader()
     for line in pf:
@@ -81,7 +81,7 @@ with open('other/professors.csv', 'r') as pf:
         courses = lineList[9]
 
         row = {'prof_ID': profID, 'first_name': firstN, 'last_name': lastN, 'title': title, 'email': email,
-               'phone_number': phone, 'office': office, 'slug': slug, 'picture': pic}
+               'phone_number': phone, 'office': office, 'slug': slug, 'picture': pic, 'courses': courses}
         writer.writerow(row)
 
 

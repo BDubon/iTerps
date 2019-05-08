@@ -1,9 +1,17 @@
 {% extends 'base.html' %}
 {% load static %}
-
+{% load crispy_forms_tags %}
 {% block head_title %}Professor - {{ object.last_name }}{% endblock %}
 
+
+
 {% block content %}
+    <!-- Add icon library -->
+    <style type="text/css">
+        .checked {
+            color: orange;
+        }
+    </style>
     <div class="clearfix row">
         <!-- PROFILE CARD -->
         <div class="col-sm-4" style="margin-top: 20px;">
@@ -17,8 +25,16 @@
                                 <img class="card-img-top border-top-0" src="{{ object.picture}}" alt="Card image cap" style="height: auto; object-fit: cover; object-position: 0 0;">
                             {% endif %}
                             <div class="card-body">
-                            <h5 class="card-title"><b>{{ object.first_name }} {{ object.last_name }}</b></h5>
-                            <p class="card-text"><em>{{ object.title }}</em></p>
+                                <h5 class="card-title"><b>{{ object.first_name }} {{ object.last_name }}</b></h5>
+                                <p class="card-text"><em>{{ object.title }}</em></p>
+                                <!-- RATING STARS -->
+                                <span class="heading"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star checked"></span>
+                                <span class="fa fa-star"></span>
+                                <p>4.1 average based on 254 reviews.</p>
                             </div>
                         </div>
 
@@ -37,41 +53,50 @@
                 </div>
             </div>
         </div>
+        <br>
+        <br>
 
         <!-- CONTENT -->
         <div class="column content col-sm-8">
-                <h1 style="margin-top: 30px;">REVIEWS</h1>
+            <br>
+            {% if user.is_authenticated %}
+                <h3>Type your review here!</h3>
+                <form  class="form-container" method="POST"> {% csrf_token %}
+                    <!-- Comment Area -->
+                    {{ form|crispy }}
+                    <!-- <textarea rows="8" cols="50" style="margin: auto;"></textarea> -->
+                    <button href="{% url 'professors:professor_detail' slug=professor.slug %}" class="btn" type="submit" value="save">Submit</button>
+                 </form>
+            {% else %}
+                <a href="{%  url 'login' %}"><button class="btn">Log In to Leave A Review!</button></a>
+            {% endif %}
+            <br>
+            <br>
+
             <hr>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et
-                dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip
-                ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit</p>
-                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore
-                et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut
-                aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit</p>
+
+            <h1 style="margin-top: 30px;">REVIEWS</h1>
+            <hr style="border:3px solid #f1f1f1">
+
+                <!-- ENTER REVIEWS HERE -->
+                {% for comment in  professor.comments.all %}
+                    <div class="card m-sm-2">
+                        <div class="card-header">
+                            <h5>{{ comment.title }}</h5>
+                        </div>
+                        <div class="card-body">
+                            <blockquote class="blockquote mb-0">
+                                <p>{{ comment.body }}</p>
+                                <footer class="blockquote-footer">Posted by <cite title="Source Title">{{ comment.user }}</cite> on {{ comment.created }}</footer>
+                            </blockquote>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p><b><em>There are no comments yet. Be the first one!</em></b></p>
+                {% endfor %}
+                <br>
+                <br>
+
         </div>
     </div>
 

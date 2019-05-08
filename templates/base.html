@@ -9,10 +9,12 @@
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" type="text/css" href="{% static  'bootstrap.min.css' %}">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{% static  'courses/courses_custom.css' %}">
+    <link rel="shortcut icon" type="image/png" href="{% static 'shell_icon.ico' %}"/>
 
       {% if title %}
-          <title>iTerps - {{ title }}</title>
+          <title>{{ title }}</title>
       {% else %}
           <title>iTerps</title>
       {% endif %}

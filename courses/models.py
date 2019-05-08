@@ -1,31 +1,22 @@
 from __future__ import unicode_literals
 from django.db import models
+from django.contrib.auth.models import User
 from django.db.models.signals import pre_save
-from django.urls import reverse
 from django.utils.text import slugify
 from django.db.models import Q
 
 
 class Course(models.Model):
-    course_id = models.AutoField(db_column='course_ID', primary_key=True)  # Field name made lowercase.
+    # Field name made lowercase.
     course_number = models.CharField(max_length=10)
     name = models.CharField(max_length=150)
     slug = models.SlugField(unique=True)
-    # times = models.CharField(max_length=20)
-    # days = models.CharField(max_length=10)
-    # seats = models.IntegerField()
     description = models.CharField(max_length=300)
-    # setting = models.CharField(max_length=10)
-    # location = models.CharField(max_length=10)
     credits = models.IntegerField()
     prerequisites = models.CharField(max_length=100)
     fulfillment = models.CharField(max_length=10)
-    # section = models.CharField(max_length=5)
 
     def __str__(self):
-        return self.course_number
-
-    def __unicode__(self):
         return self.course_number
 
     def get_absolute_url(self):
@@ -33,38 +24,26 @@ class Course(models.Model):
 
     class Meta:
         managed = True
-        db_table = 'course'
 
 
-'''class CourseDetailAdmin(iTerps.ModelAdmin):
-    list_display = ("course_ID", "course_number", "name", "description", "credits", "prerequisites", "fulfillment")'''
+class Rating(models.Model):
+    course = models.ForeignKey(Course, on_delete=models.CASCADE, related_name='comments')  # Field name made lowercase.
+    user = models.ForeignKey(User, on_delete=models.CASCADE, db_column='username')
+    title = models.CharField(max_length=200)
+    body = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    approved = models.BooleanField(default=False)
 
+    def approved(self):
+        self.approved = True
+        self.save()
 
-class CourseRating(models.Model):
-    from professors.models import Professor
-    rating_id = models.AutoField(db_column='rating_ID', primary_key=True)  # Field name made lowercase.
-    course = models.ForeignKey(Course, db_column='course_ID', on_delete=models.CASCADE)  # Field name made lowercase.
-    student_email = models.CharField(max_length=100)
-    time = models.DateTimeField(auto_now_add=True)
-    slug = models.SlugField(unique=True)
-    rating = models.IntegerField(
-        choices=(
-            (1, 1),
-            (2, 2),
-            (3, 3),
-            (4, 4),
-            (5, 5)
-        )
-    )
-    comment = models.CharField(max_length=300)
-    prof_id = models.ForeignKey(Professor, models.DO_NOTHING, db_column='prof_ID')  # Field name made lowercase.
-
-    # def __str__(self):
-        # return self.course
+    def __str__(self):
+        return self.body
 
     class Meta:
+        ordering = ['-created']
         managed = True
-        db_table = 'course_rating'
 
 
 def create_slug(instance, new_slug=None):
@@ -74,7 +53,7 @@ def create_slug(instance, new_slug=None):
     qs = Course.objects.filter(slug=slug).order_by('-course_ID')
     exists = qs.exists()
     if exists:
-        new_slug = "%s-%s" % (slug, qs.first().course_ID)
+        new_slug = "%s-%s" % (slug, qs.first().course_id)
         return create_slug(instance, new_slug=new_slug)
     return slug
 

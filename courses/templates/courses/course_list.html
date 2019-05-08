@@ -8,31 +8,31 @@
             <ul class="pagination justify-content-end" >
             {% if page_obj.has_previous %}
                 <li class="page-item">
-                    <a class="page-link" style="color: #FFDB19; background-color: #1b1e21;" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                    <a class="page-link" style="color: #FFDB19; background-color: rgba(0, 0, 0, 0.6);" href="?page={{ page_obj.previous_page_number }}">Previous</a>
                 </li>
             {% else %}
                 <li class="page-item disabled">
-                    <span class="page-link" style="color: #b79419; background-color: #212121;">Previous</span>
+                    <span class="page-link" style="color: #dcb61a; background-color: rgba(0, 0, 0, 0.4);;">Previous</span>
                 </li>
             {% endif %}
 
             {% for i in paginator.page_range %}
               {% if page_obj.number == i %}
                 <li class="page-item active">
-                    <span class="page-link" style="color: #f9f9f9; background-color: #a80001; border: 1px solid #a80001;">{{ i }}<span class="sr-only">(current)</span></span>
+                    <span class="page-link" style="color: #f9f9f9; background-color: rgba(205,0,17,0.87);; border: 1px solid #a80001;">{{ i }}<span class="sr-only">(current)</span></span>
                 </li>
               {% else %}
-                <li class="page-item"><a class="page-link" style="color: #FFDB19; background-color: #1b1e21;" href="?page={{ i }}">{{ i }}</a></li>
+                <li class="page-item"><a class="page-link" style="color: #FFDB19; background-color: rgba(0, 0, 0, 0.6);" href="?page={{ i }}">{{ i }}</a></li>
               {% endif %}
             {% endfor %}
 
             {% if page_obj.has_next %}
                 <li class="page-item">
-                    <a class="page-link" style="color: #FFDB19; background-color: #1b1e21;" href="?page={{ page_obj.next_page_number }}">Next</a>
+                    <a class="page-link" style="color: #FFDB19; background-color: rgba(0, 0, 0, 0.6);" href="?page={{ page_obj.next_page_number }}">Next</a>
                 </li>
             {% else %}
                 <li class="page-item disabled">
-                    <span class="page-link" style="color: #947419; background-color: #212121;">Next</span>
+                    <span class="page-link" style="color: #947419; background-color: rgba(0, 0, 0, 0.4);">Next</span>
                 </li>
             {% endif %}
                 </ul>
@@ -43,7 +43,7 @@
          {% for course in object_list %}
              <div class="col-md-3" style="margin: 10px 20px; max-width: 18rem; min-height: 20px;">
                  <a href="{% url 'courses:course_detail' course.slug %}" style="text-decoration: none; background-color: #bd2130;">
-                     <div class="card text-center" style="background-color: #000000; width: 18rem; height: 9rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
+                     <div class="card text-center" style="background-color: rgba(0, 0, 0, 0.6); width: 18rem; height: 9rem; box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);">
                         <div class="card-body">
                             <h5 class="card-title" style="color: #ffdb19"><b>{{ course.course_number }}</b></h5>
                             <p class="card-text" style="color: #fffef6">{{ course.name }}</p>
@@ -54,37 +54,72 @@
          {% endfor %}
     </div>
     <br>
-    <!-- PAGINATOR BOTTOM -->
+    <br>
     <nav aria-label="Page Navigation">
         {% if is_paginated %}
-            <ul class="pagination justify-content-end">
+            <ul class="pagination justify-content-end" >
             {% if page_obj.has_previous %}
                 <li class="page-item">
-                    <a class="page-link" style="color: #FFDB19; background-color: #1b1e21;" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                    <a class="page-link" style="color: #FFDB19; background-color: rgba(0, 0, 0, 0.6);" href="?page={{ page_obj.previous_page_number }}">Previous</a>
                 </li>
             {% else %}
                 <li class="page-item disabled">
-                    <span class="page-link" style="color: #b79419; background-color: #212121;">Previous</span>
+                    <span class="page-link" style="color: #dcb61a; background-color: rgba(0, 0, 0, 0.4);;">Previous</span>
                 </li>
             {% endif %}
 
             {% for i in paginator.page_range %}
               {% if page_obj.number == i %}
                 <li class="page-item active">
-                    <span class="page-link" style="color: #f9f9f9; background-color: #a80001; border: 1px solid #a80001;">{{ i }}<span class="sr-only">(current)</span></span>
+                    <span class="page-link" style="color: #f9f9f9; background-color: rgba(205,0,17,0.87);; border: 1px solid #a80001;">{{ i }}<span class="sr-only">(current)</span></span>
                 </li>
               {% else %}
-                <li class="page-item"><a class="page-link" style="color: #FFDB19; background-color: #1b1e21;" href="?page={{ i }}">{{ i }}</a></li>
+                <li class="page-item"><a class="page-link" style="color: #FFDB19; background-color: rgba(0, 0, 0, 0.6);" href="?page={{ i }}">{{ i }}</a></li>
               {% endif %}
             {% endfor %}
 
             {% if page_obj.has_next %}
                 <li class="page-item">
-                    <a class="page-link" style="color: #FFDB19; background-color: #1b1e21;" href="?page={{ page_obj.next_page_number }}">Next</a>
+                    <a class="page-link" style="color: #FFDB19; background-color: rgba(0, 0, 0, 0.6);" href="?page={{ page_obj.next_page_number }}">Next</a>
                 </li>
             {% else %}
                 <li class="page-item disabled">
-                    <span class="page-link" style="color: #947419; background-color: #212121;">Next</span>
+                    <span class="page-link" style="color: #947419; background-color: rgba(0, 0, 0, 0.4);">Next</span>
+                </li>
+            {% endif %}
+                </ul>
+        {% endif %}
+    </nav><br>
+    <nav aria-label="Page Navigation">
+        {% if is_paginated %}
+            <ul class="pagination justify-content-end" >
+            {% if page_obj.has_previous %}
+                <li class="page-item">
+                    <a class="page-link" style="color: #FFDB19; background-color: rgba(0, 0, 0, 0.6);" href="?page={{ page_obj.previous_page_number }}">Previous</a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <span class="page-link" style="color: #dcb61a; background-color: rgba(0, 0, 0, 0.4);;">Previous</span>
+                </li>
+            {% endif %}
+
+            {% for i in paginator.page_range %}
+              {% if page_obj.number == i %}
+                <li class="page-item active">
+                    <span class="page-link" style="color: #f9f9f9; background-color: rgba(205,0,17,0.87);; border: 1px solid #a80001;">{{ i }}<span class="sr-only">(current)</span></span>
+                </li>
+              {% else %}
+                <li class="page-item"><a class="page-link" style="color: #FFDB19; background-color: rgba(0, 0, 0, 0.6);" href="?page={{ i }}">{{ i }}</a></li>
+              {% endif %}
+            {% endfor %}
+
+            {% if page_obj.has_next %}
+                <li class="page-item">
+                    <a class="page-link" style="color: #FFDB19; background-color: rgba(0, 0, 0, 0.6);" href="?page={{ page_obj.next_page_number }}">Next</a>
+                </li>
+            {% else %}
+                <li class="page-item disabled">
+                    <span class="page-link" style="color: #947419; background-color: rgba(0, 0, 0, 0.4);">Next</span>
                 </li>
             {% endif %}
                 </ul>

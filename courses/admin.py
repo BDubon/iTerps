@@ -1,10 +1,20 @@
 from django.contrib import admin
-from .models import Course, CourseRating, CourseProf
+from .models import Course, CourseProf, Rating
+
+admin.site.register(CourseProf)
 
 
 # Register your models here.
-admin.site.register(Course)
-admin.site.register(CourseRating)
-admin.site.register(CourseProf)
-# iTerps.site.register(Course, CourseDetailAdmin)
+class CourseAdmin(admin.ModelAdmin):
+    list_display = ('course_number', 'name', )
+    search_fields = ('course_number', 'name', 'description')
+
+
+class RatingAdmin(admin.ModelAdmin):
+    list_display = ('user', 'course', 'body', 'created', 'approved')
+    search_fields = ('course', 'user', 'body')
+
+
+admin.site.register(Course, CourseAdmin)
+admin.site.register(Rating, RatingAdmin)
 
