@@ -17,7 +17,7 @@
         <div class="col-sm-4" style="margin-top: 20px;">
             <div class="column menu" style="position: -webkit-sticky; position: sticky; top: 6rem;">
                 <div class="card" style="width: 18rem; position: -webkit-sticky; position: sticky; top: 50px;}">
-                    <span class="clearfix">
+                    <div class="clearfix">
                         <div>
                             {% if object.picture == 'NA' %}
                                 <img class="card-img-top border-top-0" src="{% static 'professors/default_profile.png' %}" alt="Card image cap" style="height: auto; object-fit: cover;">
@@ -49,7 +49,7 @@
                             <a href="#" class="card-link">Card link</a>
                             <a href="#" class="card-link">Another link</a>
                         </div> -->
-                    </span>
+                    </div>
                 </div>
             </div>
         </div>
@@ -65,10 +65,10 @@
                     <!-- Comment Area -->
                     {{ form|crispy }}
                     <!-- <textarea rows="8" cols="50" style="margin: auto;"></textarea> -->
-                    <button href="{% url 'professors:professor_detail' slug=professor.slug %}" class="btn" type="submit" value="save">Submit</button>
+                    <button href="{% url 'professors:professor_detail' slug=professor.slug %}" class="btn btn-danger" type="submit" value="save">Submit</button>
                  </form>
             {% else %}
-                <a href="{%  url 'login' %}"><button class="btn">Log In to Leave A Review!</button></a>
+                <a href="{%  url 'login' %}"><button class="btn btn-danger">Log In to Leave A Review!</button></a>
             {% endif %}
             <br>
             <br>
