@@ -7,19 +7,21 @@
         <form method="POST">
             {% csrf_token %}
             <filedset class="form-group">
-                <legend class="'border-bottom mb-4"><b>Join Today</b></legend>
+                <legend class="'border-bottom mb-4"><b>Join Today!</b></legend>
                 {{ form|crispy }}
             </filedset>
             <div class="'form-group">
-                <button class="btn btn-outline-info" type="submit">Sign Up!</button>
+                <button class="btn btn-outline-danger" type="submit">Sign Up!</button>
             </div>
             <br>
         </form>
         <div class="border-top pt-3">
             <small class="text-muted">
-                Already Have An Account? <a class="ml-2" href="{% url 'login' %}">Sign In</a>
+                Already Have An Account? <a class="ml-2" href="{% url 'login' %}" style="color: #bd2130; text-decoration: none;"><b>Sign In!</b></a>
             </small>
         </div>
     </div>
+    <br>
+    <br>
 {% endblock content %}
 

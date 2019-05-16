@@ -3,28 +3,18 @@
 {% block content %}
     <br>
     <br>
-
     <div class="content-section">
 
-        <form method="POST">
+        <form method="POST"  action="{% url 'login' %}">
             {% csrf_token %}
+            <input type="hidden" name="next" value="{{ request.GET.next }}">
+
             <fieldset class="form-group">
                 <legend class="'border-bottom mb-4"><b>Log In</b></legend>
                 {{ form|crispy }}
             </fieldset>
-             <!-- UNCOMMENT FOR OPTION 2
-             <div class="form-group">
-                <label for="username"><b>Username</b></label>
-                <input type="text" class="form-control" name="username" placeholder="Enter username">
-             </div>
-
-            <div class="form-group">
-                <label for="password"><b>Password</b></label>
-                <input type="password" class="form-control" name="password" placeholder="Enter password">
-            </div>
-            -->
             <div class="'form-group">
-                <button class="btn btn-outline-info" type="submit">Login</button>
+                <button class="btn btn-outline-danger" type="submit">Login</button>
             </div>
 
             <br>
@@ -32,7 +22,7 @@
 
         <div class="border-top pt-3">
             <small class="text-muted">
-                Don't Have An Account? <a class="ml-2" href="{% url 'register' %}">Sign Up Now!</a>
+                Don't Have An Account? <a class="ml-2" href="{% url 'register' %}" style="color: #bd2130; text-decoration: none;"><b>Sign Up Now!</b></a>
             </small>
         </div>
         <br>

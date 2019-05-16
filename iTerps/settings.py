@@ -34,6 +34,7 @@ INSTALLED_APPS = [
     'courses',
     'haystack',
     'professors',
+    'star_ratings',
     'users',
     'whoosh',
     'crispy_forms',
@@ -152,5 +153,17 @@ STATICFILES_DIRS = [os.path.join(BASE_DIR, "static"),
                     os.path.join(BASE_DIR, 'other')]
 
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
+#STAR_RATINGS_STAR_SPRITE = '/static/shell_rating'
 
-LOGIN_REDIRECT_URL = 'home'
+
+# URL REDIRECTING
+
+LOGIN_REDIRECT_URL = 'home'  # - may need to uncomment
+
+TEMPLATE_CONTEXT_PROCESSORS = (
+    "django.core.context_processors.auth",
+    "django.core.context_processors.debug",
+    "django.core.context_processors.i18n",
+    "django.core.context_processors.media",
+    "django.core.context_processors.request",
+)

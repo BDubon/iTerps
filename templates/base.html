@@ -12,7 +12,8 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     <link rel="stylesheet" type="text/css" href="{% static  'courses/courses_custom.css' %}">
     <link rel="shortcut icon" type="image/png" href="{% static 'shell_icon.ico' %}"/>
-
+    <link rel="stylesheet" href="{% static 'star-ratings/css/star-ratings.css' %}">
+    <script type="text/javascript" src="{% static 'star-ratings/js/dist/star-ratings.min.js' %}"></script>
       {% if title %}
           <title>{{ title }}</title>
       {% else %}
@@ -54,10 +55,11 @@
                             <div class="navbar-nav">
                                 {% if user.is_authenticated %}
                                     <a class="nav-item nav-link" href="{% url 'profile' %}">Profile</a>
-                                    <span class="glyphicon glyphicon-user"></span>
+                                    <span class="nav-item nav-link"> | </span>
                                     <a class="nav-item nav-link" href="{%  url 'logout' %}">Logout</a>
                                 {% else %}
-                                    <a class="nav-item nav-link" href="{%  url 'login' %}">Login</a>
+                                    <a class="nav-item nav-link" href="{% url 'login' %}?next={{ request.path|urlencode }}">Login</a>
+                                    <span class="nav-item nav-link"> | </span>
                                     <a class="nav-item nav-link" href="{%  url 'register' %}">Register</a>
                                 {% endif %}
                             </div>
@@ -103,7 +105,7 @@
             <br>
             <div style="color: #fbfbff; background-color: #788080; position: absolute; bottom: 0; width: 100%; height: 4rem;">
               <div class="w-75 container-fluid">
-                  <p>2019 iTerps</p>
+                  <a href="/" style="text-align: center; text-decoration: None; color: #fbfbff"><h4><b>iTerps</b></h4></a>
               </div>
             </div>
         </div>

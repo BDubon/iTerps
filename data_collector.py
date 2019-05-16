@@ -24,12 +24,13 @@ import csv
     'also_offered_as'
     'credit_granted_for'
 'sections' - list
+"""
 
 url = 'https://api.umd.io/v0/courses?dept_id=INST'
 
 data = r.get(url)
 jData = json.loads(data.content)
-with open('other/courses.csv', 'w', newline='') as csvFile:
+with open('other/courses_original.csv', 'w', newline='') as csvFile:
     headers = ['id', 'course_id', 'name', 'slug', 'description', 'credits', 'prereqs', 'gen_ed']
     writer = csv.DictWriter(csvFile, fieldnames=headers)
     writer.writeheader()
@@ -55,8 +56,9 @@ with open('other/courses.csv', 'w', newline='') as csvFile:
                'credits': credit, 'prereqs': pre, 'gen_ed': gen}
 
         writer.writerow(row)
+
         id += 1
-"""
+
 
 # PROFESSOR'S DATA
 

@@ -1,5 +1,6 @@
 {% extends 'base.html' %}
 {% load static %}
+{% load ratings %}
 {% block content %}
     <!-- PAGINATOR TOP-->
     <br>
@@ -47,6 +48,7 @@
                         <div class="card-body">
                             <h5 class="card-title" style="color: #ffdb19"><b>{{ course.course_number }}</b></h5>
                             <p class="card-text" style="color: #fffef6">{{ course.name }}</p>
+                            <p>{{ rating.average|floatformat:"-2" }}</p>
                         </div>
                      </div>
                  </a>

@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% load ratings %}
 {% block head_title %}Professor - {{ object.last_name }}{% endblock %}
 
 
@@ -15,6 +16,8 @@
     <div class="clearfix row">
         <!-- PROFILE CARD -->
         <div class="col-sm-4" style="margin-top: 20px;">
+            <br>
+            <br>
             <div class="column menu" style="position: -webkit-sticky; position: sticky; top: 6rem;">
                 <div class="card" style="width: 18rem; position: -webkit-sticky; position: sticky; top: 50px;}">
                     <div class="clearfix">
@@ -25,23 +28,17 @@
                                 <img class="card-img-top border-top-0" src="{{ object.picture}}" alt="Card image cap" style="height: auto; object-fit: cover; object-position: 0 0;">
                             {% endif %}
                             <div class="card-body">
-                                <h5 class="card-title"><b>{{ object.first_name }} {{ object.last_name }}</b></h5>
+                                <h5 class="card-title" style="color: #bd2130"><b>{{ object.first_name }} {{ object.last_name }}</b></h5>
                                 <p class="card-text"><em>{{ object.title }}</em></p>
-                                <!-- RATING STARS -->
-                                <span class="heading"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star checked"></span>
-                                <span class="fa fa-star"></span>
-                                <p>4.1 average based on 254 reviews.</p>
                             </div>
                         </div>
 
                         <ul class="list-group list-group-flush">
-                            <li class="list-group-item">{{ object.email }}</li>
-                            <li class="list-group-item">{{ object.office }}</li>
-                            <li class="list-group-item">{{ object.phone_number }}</li>
+                            <li class="list-group-item">{% ratings object %}</li>
+                            <li class="list-group-item"><em style="color: #bd2130">email: </em>{{ object.email }}</li>
+                            <li class="list-group-item"><em style="color: #bd2130">office: </em>{{ object.office }}</li>
+
+                            <li class="list-group-item"><em style="color: #bd2130">Phone Number: </em>{{ object.phone_number }}</li>
                         </ul>
 
                         <!-- ADD LINKS TO PROFESSOR'S WEBSITE (optional)
@@ -51,13 +48,17 @@
                         </div> -->
                     </div>
                 </div>
+            <br>
+            <br>
             </div>
         </div>
         <br>
         <br>
 
+
         <!-- CONTENT -->
         <div class="column content col-sm-8">
+            <br>
             <br>
             {% if user.is_authenticated %}
                 <h3>Type your review here!</h3>
@@ -68,21 +69,22 @@
                     <button href="{% url 'professors:professor_detail' slug=professor.slug %}" class="btn btn-danger" type="submit" value="save">Submit</button>
                  </form>
             {% else %}
-                <a href="{%  url 'login' %}"><button class="btn btn-danger">Log In to Leave A Review!</button></a>
+                <input type="hidden" name="next" value="{{ request.path }}">
+                <a href="{% url 'login' %}?next={{ request.path|urlencode }}"><button class="btn btn-danger">Log In to Leave A Review!</button></a>
             {% endif %}
             <br>
             <br>
 
             <hr>
 
-            <h1 style="margin-top: 30px;">REVIEWS</h1>
+            <h2 style="margin-top: 30px;">REVIEWS</h2>
             <hr style="border:3px solid #f1f1f1">
 
                 <!-- ENTER REVIEWS HERE -->
                 {% for comment in  professor.comments.all %}
                     <div class="card m-sm-2">
                         <div class="card-header">
-                            <h5>{{ comment.title }}</h5>
+                            <h5 style="color: #bd2130"><b>{{ comment.title }}</b></h5>
                         </div>
                         <div class="card-body">
                             <blockquote class="blockquote mb-0">
@@ -92,7 +94,7 @@
                         </div>
                     </div>
                 {% empty %}
-                    <p><b><em>There are no comments yet. Be the first one!</em></b></p>
+                    <p style="text-align: center;"><b><em>There are no comments yet. Be the first one!</em></b></p>
                 {% endfor %}
                 <br>
                 <br>

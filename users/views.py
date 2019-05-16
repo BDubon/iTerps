@@ -4,7 +4,6 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm
 from django.contrib.auth import authenticate, login, logout
 
-
 def login_user(request):
     if request.method == "POST":
         username = request.POST.get('username')
@@ -12,18 +11,23 @@ def login_user(request):
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
-            redirect_url = request.GET.get('next', 'home')
+            redirect_url = request.POST.get('next', 'home')
             return redirect(redirect_url)
         else:
             messages.error(request, 'Bad username or password')
 
+        if 'next' in request.POST:
+            return redirect(request.POST.get('next'))
+        else:
+            return redirect('home')
+    # context = {'form': form}
     return render(request, 'users/login.html', {})
 
 
 def logout_user(request):
     logout(request)
 
-    return redirect('users:login')
+    return redirect('next')
 
 
 def register(request):

@@ -11,9 +11,9 @@ class Course(models.Model):
     course_number = models.CharField(max_length=10)
     name = models.CharField(max_length=150)
     slug = models.SlugField(unique=True)
-    description = models.CharField(max_length=300)
+    description = models.CharField(max_length=950)
     credits = models.IntegerField()
-    prerequisites = models.CharField(max_length=100)
+    prerequisites = models.CharField(max_length=500)
     fulfillment = models.CharField(max_length=10)
 
     def __str__(self):

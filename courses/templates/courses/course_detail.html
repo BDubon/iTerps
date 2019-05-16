@@ -1,6 +1,7 @@
 {% extends 'base.html' %}
 {% load static %}
 {% load crispy_forms_tags %}
+{% load ratings %}
 {% block head_title %}Course - {{ object.course_number }}{% endblock %}
 
     <head>
@@ -9,37 +10,55 @@
 
 {% block content %}
     <br>
-    <div>
-        <h1>{{ object.course_number }}</h1>
+    <div class="m-sm-4">
+        <h1 style="color: #bd2130"><b>{{ object.course_number }}</b></h1>
         <hr>
-        <h3>{{ object.name }}</h3>
+        <h3 style="color: #000000">{{ object.name }}</h3>
         <p>{{ object.description }}</p>
-        <p><b>Credits: </b>{{ object.credits }}</p>
-        <p><b>GenEd Fulfillment: </b>{{ object.fulfillment }}</p>
-        <p><b>Prerequisites: </b>{{ object.prerequisites }}</p>
+        <br>
+        <div class="clearfix row">
+            <div class="col-sm-8">
+                <span style="margin-right: 50px;"><b>Credits: </b>{{ object.credits }}</span>
+                <span style="margin-right: 50px;"><b>GenEd Fulfillment: </b>{{ object.fulfillment }}</span>
+                <br>
+                <br>
+                <div><b>Prerequisites: </b>{{ object.prerequisites }}</div>
+            </div>
+            <div class="col-sm-4" style="text-align: left">{% ratings object %}</div>
+        </div>
     </div>
+    <br>
 
 
     <!-- SUMMARY RATINGS -->
     <!-- Add icon library -->
     {% if user.is_authenticated %}
-        <label for="course-review">Type your review here!</label>
-        <form  class="form-container" method="POST"> {% csrf_token %}
-            <!-- Comment Area -->
-            {{ form|crispy }}
-            <!-- <textarea rows="8" cols="50" style="margin: auto;"></textarea> -->
-            <button href="{% url 'courses:course_detail' slug=course.slug %}" class="btn btn-danger" type="submit" value="save">Submit</button>
-        </form>
+        <div class="m-sm-4">
+            <hr>
+            <h4><b><em>Type your review here!</em></b></h4>
+            <form  class="form-container" method="POST">
+                {% csrf_token %}
+                <input type="hidden" name="next" value="{{ path }}">
+                <!-- Comment Area -->
+
+                {{ form|crispy }}
+                <!-- <textarea rows="8" cols="50" style="margin: auto;"></textarea> -->
+                <button href="{% url 'courses:course_detail' slug=course.slug %}" class="btn btn-danger" type="submit" value="save">Submit</button>
+            </form>
+            <br>
+            <h1 style="margin-top: 30px;">REVIEWS</h1>
+            <hr style="border:3px solid #f1f1f1">
+        </div>
     {% else %}
-        <a href="{%  url 'login' %}"><button class="btn btn-danger">Log In to Leave A Review!</button></a>
+        <hr>
+        <br>
+        <a class="m-sm-4" href="{% url 'login' %}?next={{ request.path|urlencode }}"><button class="btn btn-danger">Log In to Leave A Review!</button></a>
     {% endif %}
-    <br>
-    <br>
     <div>
         {% for comment in course.comments.all %}
             <div class="card m-sm-2">
                 <div class="card-header">
-                    {{ comment.title }}
+                    <h5><b>{{ comment.title }}</b></h5>
                 </div>
                 <div class="card-body">
                     <blockquote class="blockquote mb-0">
@@ -50,10 +69,8 @@
             </div>
 
         {% empty %}
-            <p><b><em>There are no comments yet. Be the first one!</em></b></p>
+            <p style="text-align: center;"><b><em>There are no comments yet. Be the first one!</em></b></p>
         {% endfor %}
-        <br>
-
         <nav aria-label="Page Navigation">
         {% if is_paginated %}
             <ul class="pagination justify-content-end" >

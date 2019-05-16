@@ -3,28 +3,91 @@
 {% block head_title %}HOME{% endblock %}
 
 {% block content %}
-    <style type="text/css">
-        #home-div {
-            background: url({% static 'terp.png' %});
-            color: #788080;
-            object-fit: cover; /* pic dimensions 1024x389*/
-            height: 389px;
-            width: 1024px;
-            opacity: 60%;
-        }
+    <style>
+    .subtitle {
+        color: #cd0011;
+    }
+    .subtitle:hover {
+        color: #000;
+    }
+    .jumbotron2 {
+        background-image: url("{% static 'terp3.png' %}");
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        object-fit: cover;
+    }
     </style>
-
-    <div id="home-div">
-        <h1>other stuff</h1>
-        <!-- SEARCH BAR -->
-                        <div>
-                            <form id="searchbar" class="form-inline my-2 my-lg-0" method="GET">
-                                <div class="justify-content-center">
-                                <input class="form-control justify-content-center" id="searchbox" name="q" type="text" placeholder="Search" aria-label="Search">
-                                <br>
-                                <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
-                                    </div>
-                            </form>
-                        </div>
+    <br>
+    <div class="jumbotron jumbotron2 jumbotron-fluid">
+      <div class="container">
+        <h1 class="display-2" style="color: #b5001b;"><b>Welcome to iTerps!</b></h1>
+        <h3 class ="subtitle" style="color: #000000;"><b>Express Your Opinions!</b></h3>
+      </div>
     </div>
+    <div class="container-fluid" style="text-align: center;">
+        <p>
+            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab, aspernatur aut doloribus ducimus earum
+            excepturi laboriosam magni minima odio perspiciatis quis ratione rerum saepe sapiente totam, ullam veniam
+            voluptate voluptates? Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquid, animi commodi dolorum
+            eos, error exercitationem explicabo incidunt iure iusto libero
+            necessitatibus nemo, obcaecati quasi quia recusandae repellat similique soluta veniam.
+        </p>
+        <br>
+    </div>
+    <hr>
+    <br>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm" style="text-align: center;">
+                <a href="/courses" class="sections subtitle" style="text-decoration: none;"><h3><b>Courses</b></h3></a>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Aperiam autem, commodi dolore ducimus eveniet facere fuga
+                    iusto placeat quisquam quo reiciendis tenetur ut! At, consectetur facilis id
+                    officia provident veritatis!
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci beatae, eos excepturi
+                    exercitationem nemo tempora tenetur? Ab alias aspernatur consectetur cum exercitationem iure
+                    magnam, nemo nihil obcaecati qui quisquam voluptas.
+                </p>
+            </div>
+            <div class="col-sm" style="text-align: center;">
+                <a href="/professors" class="sections subtitle" style="text-decoration: none;"><h3><b>Professors</b></h3></a>
+                <p>
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit.
+                    Aperiam autem, commodi dolore ducimus eveniet facere fuga
+                    iusto placeat quisquam quo reiciendis tenetur ut! At, consectetur facilis id
+                    officia provident veritatis!
+                    Lorem ipsum dolor sit amet, consectetur adipisicing elit. Ab beatae consectetur culpa dolorem
+                    eligendi eos excepturi facere hic itaque iusto natus, nemo provident quod recusandae repellendus
+                    repudiandae sapiente soluta ut.
+                </p>
+            </div>
+      </div>
+    </div>
+    <hr>
+
+    <style>
+    .logos {
+        display: inline-block;
+        margin-left: auto;
+        margin-right: auto;
+        padding: 10px;
+
+    }
+
+    #images{
+        text-align:center;
+    }
+    </style>
+    <br>
+    <div id="images">
+        <a href="https://ischool.umd.edu/"><img class="logos" src="{% static 'ischool.png' %}" alt="iSchool Logo" style="width: 20%;"></a>
+        <a href="/"><img class="logos" src="{% static 'iLogo.png' %}" alt="iTerps Logo" style="width: 20%;"></a>
+    </div>
+    <br>
+    <br>
+
+
+
+
 {% endblock %}
