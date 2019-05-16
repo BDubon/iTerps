@@ -16,10 +16,6 @@ def login_user(request):
         else:
             messages.error(request, 'Bad username or password')
 
-        if 'next' in request.POST:
-            return redirect(request.POST.get('next'))
-        else:
-            return redirect('home')
     # context = {'form': form}
     return render(request, 'users/login.html', {})
 
