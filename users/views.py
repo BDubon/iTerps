@@ -4,6 +4,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import UserRegisterForm
 from django.contrib.auth import authenticate, login, logout
 
+
 def login_user(request):
     if request.method == "POST":
         username = request.POST.get('username')
