@@ -25,7 +25,7 @@ On the home page, click the College of Information Science logo/image located at
 From any page on the website, click the “iTerps” logo at the very top-left corner OR  go to the very bottom and click the “iTerps” text.
 
 ### Logging in and Submitting a Review for PROFESSORS or COURSES**
-If you are not registered yet,
+***If you are not registered yet,***
 - Click the “Register” text located at the top of the navigation bar 
 OR Click the “Log In” text located at the top of the navigation bar and select the highlighted “Sign Up Now!” text next to “Don't Have An Account?” 
 - Enter your username, your email, and your password according to the guidelines listed on the site.
