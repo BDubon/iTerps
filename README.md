@@ -10,13 +10,13 @@ At the home page, click the highlighted “Professors” text.
 OR click the “PROFESSORS” tab located at the top of the site’s navigation from any page to view different professors.
 Click on the square of the specific professor you would like to view.
 
-### *View Resources (Books, Jobs/Internships, and/or Events)* - in development
+### *View Resources (Books, Jobs/Internships, and/or Events)* ***- in development***
 From any page on the website, click the “RESOURCES” tab located at the top of the site’s navigation from any page.
 
 
-*To browse books, click the “Books” tab located at the top of the site’s navigation.* - in development
-*To view jobs/internships, click on the “Jobs/Internships” tab.* - in development
-*To view events, click on the “Events” tab.* - in development
+*To browse books, click the “Books” tab located at the top of the site’s navigation.* ***- in development***
+*To view jobs/internships, click on the “Jobs/Internships” tab.* ***- in development***
+*To view events, click on the “Events” tab.* ***- in development***
 
 **Access the Official iSchool Website**
 On the home page, click the College of Information Science logo/image located at the bottom of the page.
