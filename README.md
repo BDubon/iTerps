@@ -30,7 +30,8 @@ From any page on the website, click the “iTerps” logo at the very top-left c
 OR Click the “Log In” text located at the top of the navigation bar and select the highlighted “Sign Up Now!” text next to “Don't Have An Account?” 
 - Enter your username, your email, and your password according to the guidelines listed on the site.
 - Hit the “Sign Up!” button.
-Otherwise,
+<br>
+***Otherwise,***
 - Click the “Log In” text located at the top of the navigation bar. 
 - Enter your username, your password, and hit the “Log in” button.
 
