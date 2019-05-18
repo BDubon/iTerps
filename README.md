@@ -17,10 +17,10 @@ From any page on the website, click the “RESOURCES” tab located at the top o
 - *To view jobs/internships, click on the “Jobs/Internships” tab.* ***- in development***
 - *To view events, click on the “Events” tab.* ***- in development***
 
-**Access the Official iSchool Website**
+### Access the Official iSchool Website
 On the home page, click the College of Information Science logo/image located at the bottom of the page.
 
-**Access/Return to the Home Page**
+### Access/Return to the Home Page
 From any page on the website, click the “iTerps” logo at the very top-left corner OR  go to the very bottom and click the “iTerps” text.
 
 ### Logging in and Submitting a Review for PROFESSORS or COURSES**
