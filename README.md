@@ -1,4 +1,4 @@
-# <a href='https://cutt.ly/iTerps'>iTerps: </a>USER MANUAL
+# <a href='https://cutt.ly/iTerps'>iTerps</a>: USER MANUAL
 
 ### Access the Official iSchool Website
 On the home page, click the College of Information Science logo/image located at the bottom of the page.
